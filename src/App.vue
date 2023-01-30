@@ -11,11 +11,24 @@
   //   blue: 0
   // })
 
+  //NOTE: Ref can take any value whereas reactive only takes in objects. This can be used 
+  //as a point of distinction for when to use one or the other. 
+  //The other difference is to access values using ref, we utilize '.value' whereas when using
+  //reactive you can access state directly.
+  //The last difference is with ref you can update the entire object whereas with reactive you
+  //can only update properties.
+
   const color = reactive({
     red: 0,
     green: 0,
     blue: 0
   })
+
+  const selectRandomColor = () => {
+    color.red = Math.floor(Math.random() * 255);
+    color.green = Math.floor(Math.random() * 255);
+    color.blue = Math.floor(Math.random() * 255);
+  }
 </script>
 
 <template>
@@ -24,6 +37,7 @@
     <input type="number" v-model="color.red" placeholder="red">
     <input type="number" v-model="color.green" placeholder="green">
     <input type="number" v-model="color.blue" placeholder="blue">
+    <button @click="selectRandomColor">Select Random Color</button>
   </div>
 </main>
 </template>
