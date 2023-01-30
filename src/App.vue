@@ -1,10 +1,26 @@
 <script setup>
   import Parent from './components/Parent.vue'
+  import { ref } from 'vue';
+
+  const numbers = ref([1,2,3,4,5,6,7,8,9])
+
+  //NOTE ON PROP DRILLING: Prop drilling is the idea of passing down props from the 
+  //top-most level(Parent) through every level including the nested component we need 
+  //the props for(Great grandchild). We can accomplish this by declaring the ref in each
+  //level then including :numbers="numbers" within the component tag of the child component.
+  //In the case of our App, you can see below the Parent component is given access to the 
+  //numbers, which then opens the possibility for the Parent's child components to receive 
+  //the numbers as props as well. The big flaw to this approach is the repeatable nature. 
+  //If the props were to be modified in the App view, we would need to modify them at every
+  //level as well. There are better ways to accomplish giving access to nested components 
+  //without the need to repeat and duplicate.
+
+
 </script>
 
 <template>
   <main>
-    <Parent  />
+    <Parent :numbers="numbers" />
   </main>
 </template>
 
