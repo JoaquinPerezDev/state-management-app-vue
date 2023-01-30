@@ -1,6 +1,6 @@
 <script setup>
   import Parent from './components/Parent.vue'
-  import { ref } from 'vue';
+  import { ref, provide } from 'vue';
 
   const numbers = ref([1,2,3,4,5,6,7,8,9])
 
@@ -15,12 +15,18 @@
   //level as well. There are better ways to accomplish giving access to nested components 
   //without the need to repeat and duplicate.
 
+  //PROVIDE/INJECT: This method allows you to set the 'provide' at the top level App view.
+  //This allows us to then 'inject' those props directly to the components we're wanting to 
+  //provide them to. The big downside to using this approach is that you have to duplicate 
+  //logic at each component you're wanting to 'inject' into. This of course is not ideal, 
+  //since it goes against the DRY(Don't Repeat Yourself) ideology of writing code.  
 
+  provide("numbers", numbers)
 </script>
 
 <template>
   <main>
-    <Parent :numbers="numbers" />
+    <Parent  />
   </main>
 </template>
 

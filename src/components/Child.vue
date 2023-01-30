@@ -1,8 +1,8 @@
 <script setup> 
   import GrandChild from './GrandChild.vue'
-  import { defineProps } from 'vue';
+  import { inject } from "vue"
 
-  const { numbers } = defineProps(['numbers'])
+  const numbers = inject('numbers')
 </script>
 
 <template>
@@ -11,6 +11,6 @@
       Child Component {{ numbers }}
     </h1>
     <div class="line"></div>
-    <GrandChild :numbers="numbers" />
+    <GrandChild />
   </div>
 </template>

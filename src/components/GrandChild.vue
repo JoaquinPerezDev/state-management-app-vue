@@ -1,8 +1,6 @@
 <script setup> 
   import GreatGrandChild from './GreatGrandChild.vue'
-  import { defineProps } from 'vue';
 
-const { numbers } = defineProps(['numbers'])
 </script>
 
 <template>
@@ -11,6 +9,6 @@ const { numbers } = defineProps(['numbers'])
       Grandchild Component
     </h1>
     <div class="line"></div>
-    <GreatGrandChild :numbers="numbers" />
+    <GreatGrandChild  />
   </div>
 </template>
