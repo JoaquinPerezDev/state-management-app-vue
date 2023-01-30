@@ -1,8 +1,6 @@
 <script setup>
   import Parent from './components/Parent.vue'
-  import { ref, provide } from 'vue';
 
-  const numbers = ref([1,2,3,4,5,6,7,8,9])
 
   //NOTE ON PROP DRILLING: Prop drilling is the idea of passing down props from the 
   //top-most level(Parent) through every level including the nested component we need 
@@ -20,8 +18,6 @@
   //provide them to. The big downside to using this approach is that you have to duplicate 
   //logic at each component you're wanting to 'inject' into. This of course is not ideal, 
   //since it goes against the DRY(Don't Repeat Yourself) ideology of writing code.  
-
-  provide("numbers", numbers)
 </script>
 
 <template>
